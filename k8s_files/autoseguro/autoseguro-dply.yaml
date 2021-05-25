@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: autoseguro
-          image: andeslabs/autoseguro365:dev
+          image: felipemunozri/autotest:$BUILD_NUMBER
           imagePullPolicy: Always
           resources:
             requests:
