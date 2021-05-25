@@ -1,0 +1,32 @@
+$padding-footer: 1.5rem; 
+
+footer.footer {
+  position: absolute;
+  padding: $padding-footer;
+  left: 0;
+  right: 0;
+  bottom: 0 !important;
+  .logo {
+    img {
+      width: auto;
+      height: $footer-logo-height;
+    }
+  }
+}
+
+
+@include desktop {
+  footer.footer {
+    padding-left: 15rem + $padding-footer;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .logo {
+      img {
+        width: auto;
+        height: $footer-logo-height;
+      }
+    }
+  }
+}

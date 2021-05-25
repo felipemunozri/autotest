@@ -1,0 +1,158 @@
+/* Theme style (colors & sizes) */
+
+
+@font-face {
+  font-family: 'Optima';
+  src: url("../assets/fonts/optima.ttf") format("truetype");
+}
+
+@import "theme-default";
+
+/* Core Libs & Lib configs */
+@import "libs/all";
+
+/* Mixins */
+@import "mixins";
+
+/* Theme components */
+@import "nav-bar";
+@import "aside";
+@import "main-section";
+@import "footer";
+@import "misc";
+@import "map";
+
+/* Animate.css custom build (just selected animations to minimize bundle size) */
+@import "../css/animate.min.css";
+
+html, body{
+  font-family: $family-sans-serif !important;
+  font-weight: 500 !important;
+  font-size: $size-base*0.9;
+  position: relative;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+button{
+  font-weight: 500 !important;
+}
+
+.select select option:hover{
+  background-color: red !important;
+}
+
+.pagination-link.is-current {
+  background-color: $primary !important;
+  border-color: $primary !important;
+  color: withe;
+}
+
+.card{
+  overflow: visible !important;
+}
+
+.card-table .card-content{
+  padding: 0px !important;
+}
+
+.card-table .pagination{
+  padding: 0px 10px 10px 0px !important;
+}
+
+.card-content-padding{
+  padding: 1rem;
+}
+
+.tab-content{
+  padding: 0px !important;
+}
+
+.icon-size i::before{
+  font-size: 1.1rem !important;
+}
+
+.loading-overlay .loading-icon:after{
+  border: 2px solid $primary;
+  border-radius: 290486px;
+  border-right-color: transparent;
+  border-top-color: transparent;
+}
+
+.control.is-loading::after{
+  border: 2px solid $primary;
+  border-radius: 290486px;
+  border-right-color: transparent;
+  border-top-color: transparent;
+}
+
+.loading-overlay.is-active{
+  z-index: 10;
+}
+
+.header-field .field {
+  margin-bottom: 0px !important;
+}
+
+.field.is-grouped {
+  margin-bottom: 0px !important;
+}
+.border-right{
+  border-right: 3px solid #FF9800;
+}
+
+.dark-tabs .tabs ul{
+  background-color: #363636;
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid #FF9800;
+}
+.dark-tabs .tabs ul li a{
+  border: 0px !important;
+}
+.dark-tabs .tabs ul li>a{
+  color: white;
+}
+.dark-tabs > .tabs > ul > li.is-active > a{
+  border-top: 1px  solid #FF9800 !important;
+  border-left: 1px  solid #FF9800 !important;
+  border-right: 1px  solid #FF9800 !important;
+  border-bottom: 0px  solid white !important;
+}
+.dark-tabs li.is-active a{
+  color: #363636 !important;
+}
+.dark-tabs>.tabs>ul>li:hover>a{
+  color: #FF9800 !important;
+}
+
+.tabs .dropdown-content {
+  padding-bottom: 7.200px !important;
+}
+
+.tabs .dropdown-content *{
+  border: 0px !important;
+  text-align: left !important;
+  display: block !important;
+}
+
+.tabs .dropdown-content .dropdown-item:hover{
+  color: #FF9800 !important;
+}
+
+.badge-container{
+  position: relative;
+}
+
+.notifications-container{
+  min-width: 300px !important;
+}
+
+.step-details {
+  background-color: #ffffff !important;
+}
+
+.pagination-list{
+  list-style: none !important;
+  margin-left: 0px !important;
+  margin-top: 0px !important;
+}

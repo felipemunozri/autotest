@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autoseguro-dply
+  namespace: app-dev-autoseguro365
+  labels:
+    app: autoseguro
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: autoseguro
+  template:
+    metadata:
+      labels:
+        app: autoseguro
+    spec:
+      containers:
+        - name: autoseguro
+          image: andeslabs/autoseguro365:dev
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 100m
+              memory: 200Mi
+            limits:
+              cpu: 100m
+              memory: 250Mi
+          ports:
+            - containerPort: 80

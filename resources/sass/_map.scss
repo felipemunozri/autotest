@@ -1,0 +1,34 @@
+.map {
+  width: 100%;
+}
+
+@include mobile {
+  .map {
+      height: 200pt;
+  }
+}
+
+@include tablet-only {
+  .map {
+      height: 480pt;
+  }
+}
+@include desktop {
+  .map {
+      height: 480pt;
+  }
+}
+
+@include widescreen {
+  .map {
+      height: 480pt;
+  }
+}
+
+@include fullhd {
+  .map {
+      height: 540pt;
+  }
+}
+
+

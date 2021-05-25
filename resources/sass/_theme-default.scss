@@ -1,0 +1,165 @@
+/* We'll need some initial vars to use here */
+@import "~bulma/sass/utilities/initial-variables";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300&display=swap');
+
+/* Base: Size  */
+$size-base: 1rem;
+$default-padding: $size-base * 1.5;
+
+/* Default font */
+$family-sans-serif: 'Montserrat', sans-serif;
+
+$family-logo: 'Optima', serif;
+
+/* Base color */
+$base-color: #0085CF;
+$alt-color: #606265;
+
+$base-color-light: rgba(24,28,33,0.06);
+
+/* General overrides */
+$primary: $base-color;
+$body-background-color: #F5F5F5;
+$link: $blue;
+$link-visited: $purple;
+$light-border: 1px solid $base-color-light;
+$hr-height: 1px;
+$accent-color: $primary;
+$link: $primary;
+
+/* NavBar: specifics */
+$navbar-input-color: $grey-darker;
+$navbar-input-placeholder-color: $grey-lighter;
+$navbar-box-shadow: 0 1px 0 rgba(24,28,33,.04);
+$navbar-divider-border: 1px solid rgba($grey-lighter, .25);
+$navbar-item-h-padding: $default-padding * .75;
+$navbar-avatar-size: 2.5rem;
+$navbar-height: 4rem;
+
+/* Aside: Bulma override */
+$menu-item-radius: 0;
+$menu-list-link-padding: $size-base * .5 0;
+$menu-label-color: $white;
+$menu-item-active-color: $white;
+$menu-item-color: darken($menu-item-active-color, 50%);
+$menu-item-hover-color: $white;
+$menu-item-hover-background-color: rgba(250,250,250 ,0.1);
+
+$menu-item-active-background-color: $accent-color;
+
+/* Aside: specifics */
+$aside-width: $size-base * 18;
+$aside-mobile-width: $size-base * 18;
+$aside-icon-width: $size-base * 2;
+$aside-submenu-font-size: $size-base * 0.875;
+$aside-box-shadow: 9px 0px 10px -6px rgba(166,166,166,1);
+$aside-background-color: #212121;
+$aside-tools-background-color: darken($aside-background-color, 3%);
+$aside-tools-color: $white;
+
+/* Title Bar: specifics */
+$title-bar-color: $grey;
+$title-bar-active-color: $black-ter;
+
+/* Hero Bar: specifics */
+$hero-bar-background: $white;
+
+$hero-title-color: $base-color;
+$hero-subtitle-color: $accent-color;
+
+/* Card: Bulma override */
+//$card-shadow: none;
+$card-header-shadow: none;
+$card-radius: 0.4rem;
+
+/* Card: specifics */
+$card-border: 1px solid $base-color-light;
+$card-header-border-bottom-color: $base-color-light;
+
+/* Table: Bulma override */
+$table-cell-border: 1px solid $white-bis;
+
+/* Table: specifics */
+$table-avatar-size: $size-base * 1.5;
+$table-avatar-size-mobile: 25vw;
+$table-sticky-header-height: fit-content;
+
+/* Form */
+$checkbox-border: 1px solid $base-color;
+
+/* Modal card: Bulma override */
+$modal-card-head-background-color: $white-ter;
+$modal-card-title-size: $size-base;
+$modal-card-body-padding: $default-padding 20px;
+$modal-card-head-border-bottom: 1px solid $white-ter;
+$modal-card-foot-border-top: 0;
+$modal-background-background-color: rgba(66,66,66 ,0.5);
+
+/* Modal card: specifics */
+$modal-card-width: 40vw;
+$modal-card-width-mobile: 90vw;
+$modal-card-foot-background-color: $white-ter;
+
+/* Notification: Bulma override */
+$notification-padding: $default-padding * .75 $default-padding;
+
+/* Footer: Bulma override */
+$footer-background-color: $white;
+$footer-padding: $default-padding * .33 $default-padding;
+
+/* Footer: specifics */
+$footer-logo-height: $size-base * 2;
+
+/* Progress: Bulma override */
+$progress-bar-background-color: $grey-lighter;
+
+/* Icon: specifics */
+$icon-update-mark-size: $size-base * .5;
+$icon-update-mark-color: $yellow;
+
+
+$vs-colors: (
+        lightest: rgba(60, 60, 60, 0.26),
+        light: rgba(60, 60, 60, 0.5),
+        dark: #333,
+        darkest: rgba(0, 0, 0, .15),
+) !default;
+
+//  Global Component Variables
+$vs-component-line-height: 1.4 !default;
+$vs-component-placeholder-color: inherit !default;
+
+//  Active State
+$vs-state-active-bg: red !default;
+$vs-state-active-color: #fff !default;
+
+//  Disabled State
+$vs-state-disabled-bg: rgb(248, 248, 248) !default;
+$vs-state-disabled-color: map_get($vs-colors, 'light') !default;
+$vs-state-disabled-controls-color: map_get($vs-colors, 'light') !default;
+$vs-state-disabled-cursor: not-allowed !default;
+
+//  Borders
+$vs-border-width: 1px !default;
+$vs-border-style: solid !default;
+$vs-border-radius: 4px !default;
+$vs-border-color: map_get($vs-colors, 'lightest') !default;
+
+//  Component Controls: Clear, Open Indicator
+$vs-controls-color: map_get($vs-colors, 'light') !default;
+$vs-controls-size: 1 !default;
+$vs-controls-deselect-text-shadow: 0 1px 0 #fff;
+
+//  Selected
+$vs-selected-bg: red !default;
+$vs-selected-border-color: $vs-border-color !default;
+$vs-selected-border-style: $vs-border-style !default;
+$vs-selected-border-width: $vs-border-width !default;
+
+//  Dropdown
+$vs-dropdown-z-index: 1000 !default;
+$vs-dropdown-min-width: 160px !default;
+$vs-dropdown-max-height: 350px !default;
+$vs-dropdown-box-shadow: 0px 3px 6px 0px map_get($vs-colors, 'darkest') !default;
+$vs-dropdown-bg: #ffffff !default;

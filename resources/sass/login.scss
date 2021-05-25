@@ -1,0 +1,99 @@
+@import "theme-default";
+/* Theme style (colors & sizes) */
+#login-section{
+  padding: 0px !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image:
+  linear-gradient(to bottom, rgba(66,66,66 ,0.3), rgba(33,33,33 ,0.8)),
+  url('../assets/background.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  
+
+  .hero .nav, .hero.is-success .nav {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .box {
+    margin-top: 2rem;
+  }
+  .logo{
+    padding: 1rem 0rem;
+  
+    img{
+      width: 150px;
+    }
+  }
+
+  .avatar {
+    margin-top: -70px;
+    padding: 20px;
+
+    border-radius: 50%;
+
+  }
+  .avatar img {
+    padding: 5px;
+    background: #fff;
+    -webkit-box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+    box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+    width: 125px;
+    margin: 1rem;
+  }
+  input {
+    font-weight: 300;
+  }
+  p {
+    font-weight: 700;
+  }
+  
+  .title{
+    color:white;
+    margin-bottom: 0rem;
+    font-weight: 500;
+    font-family: $family-logo;
+  }
+
+  .subtitle {
+    color: white;
+    font-weight: 300;
+  }
+
+  .bottom-links {
+    a {
+      color: white;
+    }
+
+    a:hover{
+      color: #FF9800;
+    }
+
+    button{
+      background-color: #FF9800;
+    }
+  }
+  
+  
+  .login-hr{
+    border-bottom: 0.5px solid white;
+    margin: 1rem 0rem;
+  }
+  
+  .has-text-black{
+    color: black;
+  }
+  
+  .field{
+    padding-bottom: 10px;
+  }
+  
+  .fa{
+    margin-left: 5px; 
+  }
+}
+

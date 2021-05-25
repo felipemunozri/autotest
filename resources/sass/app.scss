@@ -1,0 +1,80 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+@import 'variables';
+@import '~bulma/bulma';
+@import '~bulma-timeline';
+@import '@creativebulma/bulma-badge';
+@import "~buefy/src/scss/buefy";
+@import "login";
+
+body {
+    font-family: Montserrat,sans-serif!important;
+    font-size: .9rem;
+    position: relative;
+    min-height: 100vh;
+}
+
+#login-section {
+    padding: 0px !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    //background-image: linear-gradient(to bottom, rgba(66,66,66 ,0.3), rgba(33,33,33 ,0.8)), url('../images/background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.logo-restart{
+    padding: 1rem 0rem;
+
+    img{
+        width: 150px;
+    }
+}
+
+.logo{
+    margin-bottom:40px;
+}
+
+.login-hr{
+    border-bottom: 0.5px solid white;
+    margin: 1rem 0rem;
+}
+
+.title-password{
+    color:white;
+    margin-bottom: 0rem;
+    font-size: 2rem !important;
+    font-weight: 500;
+    font-family: Merriweather,serif;
+}
+
+.subtitle-password {
+    color: white;
+    font-weight: 300;
+}
+
+.recuperar--password {
+    background-color: #FF9800;
+    border-color: transparent;
+    color: white;
+}
+
+.GMap__Wrapper {
+    height: 39vh !important;
+    border: 1px solid #b3b3b3;
+    min-height: 150px !important;
+}
+
+
+.login-logo img{
+    height: 150px;
+    width: auto;
+}
+
+.login-background{
+    background-color: #F5F5F5;
+}

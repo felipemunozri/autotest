@@ -1,0 +1,13 @@
+
+# To apply a ResourceQuota to a namespace use 
+# apply -f name_of_this_file.yaml -n name_of_the_namespace
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: dev-autoseguro365-rq
+spec:
+  hard:
+    requests.cpu: "1"
+    requests.memory: 1Gi
+    limits.cpu: "1"
+    limits.memory: 1Gi

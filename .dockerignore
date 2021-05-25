@@ -1,0 +1,5 @@
+.env
+/vendor
+/node_modules
+/helm/secrets.yml
+/k8s_files

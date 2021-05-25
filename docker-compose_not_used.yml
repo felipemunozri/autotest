@@ -1,0 +1,23 @@
+version: '3.5'
+services:
+  php:
+    image: hernan84/autoseguro:latest
+    restart: always
+    ports:
+      - 8000:80
+    environment:
+      - APP_KEY="base64:FWGJiRojAFBRE3gjzE2XKChvKSc9vK/2c/1jDBKm4mA="
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - DB_PORT=5432
+      - DB_HOST=postgres
+      - DB_DATABASE
+      - DB_USERNAME
+      - DB_PASSWORD
+  postgres:
+    image: postgres:alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=${DB_DATABASE}
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
