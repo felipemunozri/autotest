@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: autoseguro-service
-  namespace: app-dev-autoseguro365
+  namespace: test-namesapce
 spec:
   selector:
     app: autoseguro
