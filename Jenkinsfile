@@ -13,7 +13,7 @@ pipeline {
   stages {
     // Checkout
     stage('Checkout Source') {
-      steps {S
+      steps {
         git 'https://github.com/felipemunozri/autotest.git'
         // checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/felipemunozri/playjenkins.git']]])
       }
