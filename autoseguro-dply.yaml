@@ -7,11 +7,11 @@ metadata:
     app: autoseguro
 spec:
   replicas: 1
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
+  # strategy:
+  #   type: RollingUpdate
+  #   rollingUpdate:
+  #     maxUnavailable: 1
+  #     maxSurge: 1
   selector:
     matchLabels:
       app: autoseguro
@@ -24,12 +24,12 @@ spec:
         - name: autoseguro
           image: felipemunozri/autotest:$BUILD_NUMBER
           imagePullPolicy: Always
-          resources:
-            requests:
-              cpu: 100m
-              memory: 200Mi
-            limits:
-              cpu: 100m
-              memory: 250Mi
+          # resources:
+          #   requests:
+          #     cpu: 100m
+          #     memory: 200Mi
+          #   limits:
+          #     cpu: 100m
+          #     memory: 250Mi
           ports:
             - containerPort: 80
