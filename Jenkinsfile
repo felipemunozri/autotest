@@ -19,25 +19,25 @@ pipeline {
       }
     }
 
-    // Build
-    stage('Build image') {
-      steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        }
-      }
-    }
+  //   // Build
+  //   stage('Build image') {
+  //     steps{
+  //       script {
+  //         dockerImage = docker.build registry + ":$BUILD_NUMBER"
+  //       }
+  //     }
+  //   }
 
-    // Push
-    stage('Push Image') {
-      steps{
-        script {
-          docker.withRegistry('', registryCredential) {
-            dockerImage.push()
-          }
-        }
-      }
-    }
+  //   // Push
+  //   stage('Push Image') {
+  //     steps{
+  //       script {
+  //         docker.withRegistry('', registryCredential) {
+  //           dockerImage.push()
+  //         }
+  //       }
+  //     }
+  //   }
 
     // Deployment
     stage('Deploy App') {
