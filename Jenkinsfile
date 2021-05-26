@@ -43,8 +43,8 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          // kubernetesDeploy(configs: "k8s_files/autoseguro/autoseguro-dply.yaml", kubeconfigId: "autocluster_config")
-          kubernetesDeploy(configs: "autoseguro-dply.yaml", kubeconfigId: "autocluster-config")
+          kubernetesDeploy(configs: "k8s_files/autoseguro/autoseguro-dply.yaml", kubeconfigId: "autocluster_config")
+          // kubernetesDeploy(configs: "autoseguro-dply.yaml", kubeconfigId: "autocluster_config")
         }
       }
     }
