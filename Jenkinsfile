@@ -19,32 +19,32 @@ pipeline {
       }
     }
 
-    // Build
-    stage('Build image') {
-      steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        }
-      }
-    }
+    // // Build
+    // stage('Build image') {
+    //   steps{
+    //     script {
+    //       dockerImage = docker.build registry + ":$BUILD_NUMBER"
+    //     }
+    //   }
+    // }
 
-    // Push
-    stage('Push Image') {
-      steps{
-        script {
-          docker.withRegistry('', registryCredential) {
-            dockerImage.push()
-          }
-        }
-      }
-    }
+    // // Push
+    // stage('Push Image') {
+    //   steps{
+    //     script {
+    //       docker.withRegistry('', registryCredential) {
+    //         dockerImage.push()
+    //       }
+    //     }
+    //   }
+    // }
 
     // Deployment
     stage('Deploy App') {
       steps {
         script {
           // kubernetesDeploy(configs: "k8s_files/autoseguro/autoseguro-dply.yaml", kubeconfigId: "autocluster_config")
-          kubernetesDeploy(configs: "autoseguro-dply.yaml", kubeconfigId: "autocluster_config")
+          kubernetesDeploy(configs: "autoseguro-dply.yaml", kubeconfigId: "autocluster-config")
         }
       }
     }
