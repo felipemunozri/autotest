@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: autoseguro-dply
+  name: autoseguro-dply-prod
   namespace: test-namespace
   labels:
     app: autoseguro

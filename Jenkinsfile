@@ -35,6 +35,8 @@ pipeline {
             dockerImage.push()
           }
         }
+        slackSend channel: '#alertas', 
+          message: 'Fin push en cert!'
       } 
     }
 
@@ -49,7 +51,7 @@ pipeline {
           docker.withRegistry('', registryCredential) {
             dockerImage.push()
           slackSend channel: '#alertas', 
-            message: 'Fin deploy en dev!'
+            message: 'Fin push en cert!'
           }
         }
       } 
@@ -58,14 +60,14 @@ pipeline {
     // Build & Push prod
     stage('Build - Prod') {
       when {
-        branch 'development'
+        branch 'master'
       }
       steps{
         script {
           docker.build(registry + ":$BUILD_NUMBER", "-f Dockerfile_prod" )
-        slackSend channel: '#alertas', 
-          message: 'Fin deploy en dev!'
         }
+        slackSend channel: '#alertas', 
+          message: 'Fin push en prod!'
       } 
     }
 
@@ -76,7 +78,7 @@ pipeline {
       }
       steps {
         script {
-          kubernetesDeploy(configs: "k8s_files/autoseguro/autoseguro-dply.yaml", kubeconfigId: "autocluster_config")
+          kubernetesDeploy(configs: "k8s_files/autoseguro/dev/autoseguro-dply.yaml", kubeconfigId: "autocluster_config")
         }
         slackSend channel: '#alertas', 
           message: 'Fin deploy en dev!'
@@ -86,28 +88,28 @@ pipeline {
     // Deployment cert
     stage('Deploy - Cert') {
       when {
-        branch 'development'
+        branch 'certification'
       }
       steps {
         script {
-          kubernetesDeploy(configs: "k8s_files/autoseguro/autoseguro-dply.yaml", kubeconfigId: "autocluster_config")
+          kubernetesDeploy(configs: "k8s_files/autoseguro/test/autoseguro-dply.yaml", kubeconfigId: "autocluster_config")
         }
         slackSend channel: '#alertas', 
-          message: 'Fin deploy en dev!'
+          message: 'Fin deploy en cert!'
       }
     }
 
     // Deployment prod
     stage('Deploy - Prod') {
       when {
-        branch 'development'
+        branch 'master'
       }
       steps {
         script {
-          kubernetesDeploy(configs: "k8s_files/autoseguro/autoseguro-dply.yaml", kubeconfigId: "autocluster_config")
+          kubernetesDeploy(configs: "k8s_files/autoseguro/prod/autoseguro-dply.yaml", kubeconfigId: "autocluster_config")
         }
         slackSend channel: '#alertas', 
-          message: 'Fin deploy en dev!'
+          message: 'Fin deploy en prod!'
       }
     }
 
