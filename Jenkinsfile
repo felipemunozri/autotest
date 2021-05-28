@@ -7,45 +7,107 @@ pipeline {
     dockerImage = ""
   }
 
-  // Agente que ejecuta las acciones
   agent any
 
+  // triggers {
+  //   pollSCM '* * * * *'
+  // }
+
+  // Alerta
   stages {
-    // Checkout
-    stage('Checkout Source') {
+    stage('Inicio') {
+      agent any
       steps {
-        git 'https://github.com/felipemunozri/autotest.git'
-        // checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/felipemunozri/playjenkins.git']]])
+        slackSend channel: '#alertas', 
+          message: 'Autoseguro en construcciÃ³n!'
       }
     }
 
-    // // Build
-    // stage('Build image') {
-    //   steps{
-    //     script {
-    //       dockerImage = docker.build registry + ":$BUILD_NUMBER"
-    //     }
-    //   }
-    // }
+    // Build & Push dev
+    stage('Build - Dev') {
+      when {
+        branch 'development'
+      }
+      steps{
+        script {
+          docker.build(registry + ":$BUILD_NUMBER", "-f Dockerfile_dev" )
+          docker.withRegistry('', registryCredential) {
+            dockerImage.push()
+          }
+        }
+      } 
+    }
 
-    // // Push
-    // stage('Push Image') {
-    //   steps{
-    //     script {
-    //       docker.withRegistry('', registryCredential) {
-    //         dockerImage.push()
-    //       }
-    //     }
-    //   }
-    // }
+    // Build & Push cert
+    stage('Build - Cert') {
+      when {
+        branch 'certification'
+      }
+      steps{
+        script {
+          docker.build(registry + ":$BUILD_NUMBER", "-f Dockerfile_test" )
+          docker.withRegistry('', registryCredential) {
+            dockerImage.push()
+          slackSend channel: '#alertas', 
+            message: 'Fin deploy en dev!'
+          }
+        }
+      } 
+    }
 
-    // Deployment
-    stage('Deploy App') {
+    // Build & Push prod
+    stage('Build - Prod') {
+      when {
+        branch 'development'
+      }
+      steps{
+        script {
+          docker.build(registry + ":$BUILD_NUMBER", "-f Dockerfile_prod" )
+        slackSend channel: '#alertas', 
+          message: 'Fin deploy en dev!'
+        }
+      } 
+    }
+
+    // Deployment dev
+    stage('Deploy - Dev') {
+      when {
+        branch 'development'
+      }
       steps {
         script {
           kubernetesDeploy(configs: "k8s_files/autoseguro/autoseguro-dply.yaml", kubeconfigId: "autocluster_config")
-          // kubernetesDeploy(configs: "autoseguro-dply.yaml", kubeconfigId: "autocluster_config")
         }
+        slackSend channel: '#alertas', 
+          message: 'Fin deploy en dev!'
+      }
+    }
+
+    // Deployment cert
+    stage('Deploy - Cert') {
+      when {
+        branch 'development'
+      }
+      steps {
+        script {
+          kubernetesDeploy(configs: "k8s_files/autoseguro/autoseguro-dply.yaml", kubeconfigId: "autocluster_config")
+        }
+        slackSend channel: '#alertas', 
+          message: 'Fin deploy en dev!'
+      }
+    }
+
+    // Deployment prod
+    stage('Deploy - Prod') {
+      when {
+        branch 'development'
+      }
+      steps {
+        script {
+          kubernetesDeploy(configs: "k8s_files/autoseguro/autoseguro-dply.yaml", kubeconfigId: "autocluster_config")
+        }
+        slackSend channel: '#alertas', 
+          message: 'Fin deploy en dev!'
       }
     }
 
